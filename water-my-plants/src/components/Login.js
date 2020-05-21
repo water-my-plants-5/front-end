@@ -8,9 +8,10 @@ const Login = function () {
     password: "",
   });
 
+
   const formSchema = Yup.object().shape({
     username: Yup.string()
-      .required("You must enter a password")
+      .required("You must enter a username")
       .min(5, "Username must be at least 5 characters long"),
     password: Yup.string()
       .required("You must enter a password")
@@ -40,14 +41,15 @@ const Login = function () {
     axios
       .post("https://reqres.in/api/users", formState)
       .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.errors[0]))
   };
 
   return (
     <div className="Login">
       <form onSubmit={submitHandler}>
         <label htmlFor="username">
-          Username:<br></br><br></br>
+          Username:<br></br>
+          <br></br>
           <input
             type="text"
             name="username"
@@ -56,9 +58,11 @@ const Login = function () {
             onChange={inputHandler}
           />
         </label>
-        <br></br><br></br>
+        <br></br>
+        <br></br>
         <label htmlFor="password">
-          Password:<br></br><br></br>
+          Password:<br></br>
+          <br></br>
           <input
             type="password"
             name="password"
@@ -66,11 +70,14 @@ const Login = function () {
             value={formState.password}
             onChange={inputHandler}
           />
-        </label><br></br><br></br>
+        </label>
+        <br></br>
+        <br></br>
         <button className="submit" type="submit">
           Log In
         </button>
       </form>
+    
     </div>
   );
 };
