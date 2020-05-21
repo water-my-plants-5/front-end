@@ -25,7 +25,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.Signup{
+  color:green;
+}
+.Login{
+  color:green;
+}
 .App-link {
   color: #61dafb;
 }

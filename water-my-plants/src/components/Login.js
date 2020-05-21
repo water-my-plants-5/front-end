@@ -46,6 +46,8 @@ const Login = function () {
 
   return (
     <div className="Login">
+      <h1>WATER MY PLANTS</h1><br></br>
+      <h3>Please Log In</h3><br></br>
       <form onSubmit={submitHandler}>
         <label htmlFor="username">
           Username:<br></br>

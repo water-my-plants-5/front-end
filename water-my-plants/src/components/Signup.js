@@ -52,7 +52,8 @@ const Signup = function () {
 
   return (
     <div className="Signup">
-    <p>Please create a username, password and enter phone number</p>
+    <h1>WATER MY PLANTS</h1><br></br>
+    <h3>Please create a username, password and enter phone number</h3>
       <form onSubmit={submitHandler}>
         <label htmlFor="username">
           Username:<br></br>
