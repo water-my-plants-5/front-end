@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
+import plant from "./plant.png";
 
 const Signup = function () {
   const [formState, setFormState] = useState({
@@ -20,8 +21,8 @@ const Signup = function () {
       .required("You must enter a password")
       .min(8, "Password must be at least 8 characters long"),
     phone: Yup.string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .min(10, "Phone number must contain at least 10 characters"),
+      .matches(phoneRegExp, "Phone number is not valid")
+      .min(10, "Phone number must contain at least 10 characters"),
   });
 
   const validate = (event) => {
@@ -52,8 +53,10 @@ const Signup = function () {
 
   return (
     <div className="Signup">
-    <h1>WATER MY PLANTS</h1><br></br>
-    <h3>Please create a username, password and enter phone number</h3>
+      <img src={plant} alt="plant" />
+      <h1>WATER MY PLANTS</h1>
+      <br></br>
+      <h3>Please choose a username, a password and enter a phone number</h3>
       <form onSubmit={submitHandler}>
         <label htmlFor="username">
           Username:<br></br>
@@ -98,7 +101,7 @@ const Signup = function () {
           Sign Up
         </button>
         <Link to="/login">
-        <p>Continue to Login</p>
+          <p>Continue to Login</p>
         </Link>
       </form>
     </div>
