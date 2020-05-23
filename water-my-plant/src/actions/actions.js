@@ -9,7 +9,7 @@ import{
 
 import Axios from "axios";
 
-//Register Action
+//Signup Action
 
 export const postSignup = creds => dispatch => {
   console.log("postSignup creds", creds);

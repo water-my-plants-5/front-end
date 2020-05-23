@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import{postSignup} from "../actions/actions";
 import * as Yup from "yup";
 import axios from "axios";
+import Header from "./Header";
+import styled from "styled-compoentns";
 
-const Signup = function () {
+const Signup = function (props) {
   const [formState, setFormState] = useState({
     username: "",
     password: "",
@@ -20,8 +25,8 @@ const Signup = function () {
       .required("You must enter a password")
       .min(8, "Password must be at least 8 characters long"),
     phone: Yup.string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .min(10, "Phone number must contain at least 10 characters"),
+      .matches(phoneRegExp, "Phone number is not valid")
+      .min(10, "Phone number must contain at least 10 characters"),
   });
 
   const validate = (event) => {
@@ -42,18 +47,17 @@ const Signup = function () {
   };
 
   const submitHandler = (event) => {
+    console.log("New user", formState);
     event.preventDefault();
-    console.log("Form Submitted");
-    axios
-      .post("https://reqres.in/api/users", formState)
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err.errors[0]));
+    props.postSignup(formState).then(() => props.history.push("/login"));
+
   };
 
   return (
     <div className="Signup">
-    <h1>WATER MY PLANTS</h1><br></br>
-    <h3>Please create a username, password and enter phone number</h3>
+      <h1>WATER MY PLANTS</h1>
+      <br></br>
+      <h3>Please create a username, password and enter phone number</h3>
       <form onSubmit={submitHandler}>
         <label htmlFor="username">
           Username:<br></br>
@@ -98,12 +102,20 @@ const Signup = function () {
           Sign Up
         </button>
         <Link to="/login">
-        <p>Continue to Login</p>
+          <p>Continue to Login</p>
         </Link>
       </form>
     </div>
   );
 };
 
- 
-export default Signup;
+const mapStateProps = ({ token, loggingIn, error})=>({
+  token,
+  loggingIn,
+  error
+})
+
+export default connect(
+  mapStateProps,
+ { postSignup })
+ (Signup);

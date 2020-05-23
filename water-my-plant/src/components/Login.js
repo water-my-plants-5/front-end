@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import * as Yup from "yup";
 import axios from "axios";
 import { connect } from 'react-redux';
-import { postLogin } from "../action/actions";
+import { postLogin } from "../actions/actions";
+import styled from "styled-components";
+
 
 const Login = function () {
   const [formState, setFormState] = useState({
@@ -88,10 +90,10 @@ const Login = function () {
 
 
 
-const mapStateToProps = ({ token, logginIn, error}) =>(
+const mapStateToProps = ({ token, loginIn, error}) =>(
   {
     token,
-    loggginIn,
+    loginIn,
     error
   });
 
