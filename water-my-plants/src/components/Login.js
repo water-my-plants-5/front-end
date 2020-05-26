@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import * as Yup from "yup";
 import axios from "axios";
+import plant from "./plant.png"
+
+
+
 
 const Login = function () {
   const [formState, setFormState] = useState({
@@ -46,6 +50,7 @@ const Login = function () {
 
   return (
     <div className="Login">
+      <img src={plant} alt="plant" />
       <h1>WATER MY PLANTS</h1><br></br>
       <h3>Please Log In</h3><br></br>
       <form onSubmit={submitHandler}>
