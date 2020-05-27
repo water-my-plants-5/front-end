@@ -7,6 +7,8 @@ import Signup from "./components/Signup";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { useToken } from "./hooks/useToken";
 import PlantList from "./components/PlantList";
+import Plant from "./components/Plant";
+
 
 
 function App() {
@@ -16,7 +18,7 @@ function App() {
     <div className="App">
     <Route exact path="/login {...props}" setToken={setToken} />
     <Route exact path="/" component={Signup} />
-    {/* <PrivateRoute  /> */}
+    <PrivateRoute exact path="/plantList" component={PlantList} />
     </div>
 
   );
