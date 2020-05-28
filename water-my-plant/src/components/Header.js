@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import logo from './photos/plantLove-logo.png';
+import logo from './photos/logo.png';
 
 
 const StyledLogo = styled.img`

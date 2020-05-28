@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 import{postSignup} from "../actions/actions";
 import * as Yup from "yup";
-import axios from "axios";
-import Header from "./Header";
-import styled from "styled-compoentns";
+// import axios from "axios";
+// import Header from "./Header";
+// import styled from "styled-compoentns";
 
 const Signup = function (props) {
   const [formState, setFormState] = useState({

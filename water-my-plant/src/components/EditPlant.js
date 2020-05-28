@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DeletePlant from "./DeletePlant";
-import styled from 'styled-components'
+// import DeletePlant from "./DeletePlant";
+// import styled from 'styled-components'
 
 
 const EditPlant = props => {

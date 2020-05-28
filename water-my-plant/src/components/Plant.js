@@ -84,8 +84,7 @@ const Plant = props => {
       <StyledTypeh2>Location: </StyledTypeh2>
       <StyledP>{props.location}</StyledP>
       </StyledinfoDiv>
-      {/* <h2>Type: { props.plant.type }</h2> */}
-      {/* <h2>Location: {props.plant.location}</h2> */}
+
       <StyledP>Notification:</StyledP> 
       <StyledNotifiactionDiv>
       <StyledCheckBox type='checkbox'></StyledCheckBox>

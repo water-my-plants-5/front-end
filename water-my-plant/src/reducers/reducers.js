@@ -29,7 +29,7 @@ const initalState ={
 };
 
 
-export const reducer = ( state = initialState, {type, payload}) =>{
+export const reducer = ( state = initalState, {type, payload}) =>{
   switch(type){
     case LOGIN_SUCCESS:
       return{

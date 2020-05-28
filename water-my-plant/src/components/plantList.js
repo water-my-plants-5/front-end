@@ -11,6 +11,21 @@ import NewPlant from "./NewPlant";
 import EditPlant from "./EditPlant";
 import DeletePlant from "./DeletePlant";
 import Plant from "./Plant";
+import Nav from "./nav";
+
+
+const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+`
+const StyledCardsDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
+
+const StyledCardDiv = styled.div`
+    // border: 1px solid red;
+`
 
 
 const PlantList = props => {
@@ -18,13 +33,24 @@ const PlantList = props => {
   // GET CALL
   useEffect(() => {
     props.getPlants(localStorage.getItem("id"));
-  }, []);
+  }, [props]);
+  // POST CALL
+  //   const test = { name: "test", type: "test type", location: "test loc" };
+  //   useEffect(() => {
+  //     props.postPlants(test);
+  //   }, []);
 
-  const testPut = { name: "putTest", type: "putTest", location: "putTest" };
+  //   PUT CALL
+  // const testPut = { name: "putTest", type: "putTest", location: "putTest" };
+
 
   const [plants, setPlants] = useState([]);
 
+
+
   const submitPlant = plant => setPlants([...plants, plant]);
+
+
 
   const update = updatePlantInfo =>
     setPlants([
@@ -37,39 +63,44 @@ const PlantList = props => {
       })
     ]);
 
-    return (
-      <div className="App">
-        <Nav />
-        <NewPlant add={submitPlant} />
+
+  return (
+    <div className="App">
+      <Nav />
+    <StyledContainer>
+      <NewPlant add={submitPlant} />
+
   
-     
-        {props.plantData.map(plant => (
-            <Plant
-              name={plant.name}
-              type={plant.type}
-              location={plant.location}
+      <StyledCardsDiv>
+      {props.plantData.map(plant => (
+        <StyledCardDiv>
+          <Plant
+            name={plant.name}
+            type={plant.type}
+            location={plant.location}
+            key={props.id}
+          />
+          <div>
+            <EditPlant plant={plant} key={props.id} update={update} />
+            <DeletePlant
+              plant={plant}
               key={props.id}
             />
-            <div>
-              <EditPlant plant={plant} key={props.id} update={update} />
-              <DeletePlant
-                plant={plant}
-                key={props.id}
-              />
-            </div>
-  </div>
-    );
-  };
+          </div>
+        </StyledCardDiv>  
+      ))}</StyledCardsDiv>
+      </StyledContainer>
+    </div>
+  );
+};
 
-  const mapStateToProps = ({ plantData, isFetching, error }) => ({
-    //   console.log("mapStateToProps Plantlist", state);
-    plantData,
-    isFetching,
-    error
-  });
-  
-  export default connect(
-    mapStateToProps,
-    { getPlants, postPlants, putPlants, deletePlants }
-  )(PlantList);
+const mapStateToProps = ({ plantData, isFetching, error }) => ({
+  plantData,
+  isFetching,
+  error
+});
 
+export default connect(
+  mapStateToProps,
+  { getPlants, postPlants, putPlants, deletePlants }
+)(PlantList);

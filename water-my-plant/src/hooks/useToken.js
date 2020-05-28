@@ -1,4 +1,3 @@
-  
 import { useState, useEffect } from "react";
 import Axios from "axios";
 
@@ -7,7 +6,9 @@ export const useToken = param => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    // const url = 
+    const url = `https://water-my-plants-5.netlify.app/${localStorage.getItem(
+      "id"
+    )}`;
     if (token) {
       Axios.get(url, { headers: { Authorization: `${token}` } })
         .then(res => {

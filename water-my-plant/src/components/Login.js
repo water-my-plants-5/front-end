@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import * as Yup from "yup";
 import axios from "axios";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { postLogin } from "../actions/actions";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 
 const Login = function () {
