@@ -27,7 +27,7 @@ export const postSignup = creds => dispatch => {
   console.log("postSignup creds", creds);
   dispatch({ type: SIGNUP_START });
   return (
-    Axios.post("https://water-my-plants-5.netlify.app//", creds)
+    Axios.post("https://water-my-plants-5.netlify.app/", creds)
       .then(res => {
         console.log("RES postSignup", res);
         dispatch({ type: SIGNUP_SUCCESS });
@@ -42,7 +42,7 @@ export const postSignup = creds => dispatch => {
 export const postLogin = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return (
-    Axios.post("https://water-my-plants-5.netlify.app//", creds)
+    Axios.post("https://water-my-plants-5.netlify.app/", creds)
       .then(res => {
         console.log("RES postLogin", res);
         localStorage.setItem("token", res.data.token);
@@ -61,7 +61,7 @@ export const getPlants = userId => dispatch => {
   dispatch({ type: FETCH_PLANT_START });
 
 
-  return Axios.get(`https://water-my-plants-5.netlify.app//${userId}`, {
+  return Axios.get(`https://water-my-plants-5.netlify.app/${userId}`, {
     headers: { Authorization: localStorage.getItem("token") }
   })
     .then(res => {
@@ -79,7 +79,7 @@ export const postPlants = addPlants => dispatch => {
   console.log("UserId", userId);
 
   return Axios.post(
-    `https://water-my-plants-5.netlify.app//${userId}/plants/add`,
+    `https://water-my-plants-5.netlify.app/${userId}/plants/add`,
     addPlants,
 
     {
@@ -101,7 +101,7 @@ export const putPlants = (editPlants, plantId) => dispatch => {
   const userId = localStorage.getItem("id");
 
   return Axios.put(
-    `https://water-my-plants-5.netlify.app//${userId}/my_plant/${plantId}/update`,
+    `https://water-my-plants-5.netlify.app/${userId}/my_plant/${plantId}/update`,
     editPlants,
     {
       headers: { Authorization: localStorage.getItem("token") }
@@ -119,7 +119,7 @@ export const deletePlants = plantId => dispatch => {
   const userId = localStorage.getItem("id");
 
   return Axios.delete(
-    `https://water-my-plants-5.netlify.app//${userId}/my_plant/${plantId}/remove`,
+    `https://water-my-plants-5.netlify.app/${userId}/my_plant/${plantId}/remove`,
    
     {
       headers: { Authorization: localStorage.getItem("token") }

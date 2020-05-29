@@ -8,6 +8,10 @@ import { store } from "./store";
 import { BrowserRouter as Router } from "react-router-dom";
 // import { createStore } from 'redux';
 
+var cors = require('cors')
+
+app.use(cors()) 
+
 
 ReactDOM.render(
   <Provider store={store}>
