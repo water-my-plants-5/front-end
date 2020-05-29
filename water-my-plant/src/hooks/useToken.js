@@ -6,7 +6,7 @@ export const useToken = param => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const url = `https://water-my-plants-5.netlify.app/${localStorage.getItem(
+    const url = `https://water-my-plants-5.netlify.app//${localStorage.getItem(
       "id"
     )}`;
     if (token) {
