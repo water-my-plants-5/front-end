@@ -3,27 +3,22 @@ import axios from "axios";
 
 const PlantData = function () {
   const [plant, setPlant] = useState({
-      message: ""
+    message: "",
   });
 
   useEffect(() => {
     axios
-      .get(
-        `https://water-my-plants365.herokuapp.com/`
-      )
+      .get(`https://water-my-plants365.herokuapp.com/`)
       .then((response) => {
         //console.log(response)
-       
+
         setPlant(response.data);
-       
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
-
-  
   return (
     <div className="PlantData">
       <p>{plant.message}</p>
