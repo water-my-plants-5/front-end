@@ -33,15 +33,7 @@ const PlantList = props => {
   // GET CALL
   useEffect(() => {
     props.getPlants(localStorage.getItem("id"));
-  }, [props]);
-  // POST CALL
-  //   const test = { name: "test", type: "test type", location: "test loc" };
-  //   useEffect(() => {
-  //     props.postPlants(test);
-  //   }, []);
-
-  //   PUT CALL
-  // const testPut = { name: "putTest", type: "putTest", location: "putTest" };
+  }, [props]); 
 
 
   const [plants, setPlants] = useState([]);

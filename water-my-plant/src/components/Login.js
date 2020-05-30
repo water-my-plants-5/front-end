@@ -43,7 +43,7 @@ const Login = function () {
     event.preventDefault();
     console.log("Form Submitted");
     axios
-      .post("https://reqres.in/api/users", formState)
+      .post("https://water-my-plants365.herokuapp.com/auth/login", formState)
       .then((response) => console.log(response.data))
       .catch((err) => console.log(err.errors[0]))
   };
