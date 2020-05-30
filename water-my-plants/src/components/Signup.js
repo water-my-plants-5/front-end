@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 import plant from "./plant.png";
+import styled from "styled-components";
 
 const Signup = function () {
   const [formState, setFormState] = useState({
@@ -51,10 +52,28 @@ const Signup = function () {
       .catch((err) => console.log(err.errors[0]));
   };
 
+  const Paragraph = styled.p`
+    color: green;
+    border: 5px dotted red;
+    font-size: 1rem;
+    font-family: Tahoma, Geneva, sans-serif;
+    border-radius: 10px;
+    margin: 2% 30%;
+    padding: 1%;
+  `;
+  const Heading = styled.h1`
+    color: green;
+    border: 5px dashed green;
+    font-size: 2rem;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    border-radius: 10px;
+    margin: 2% 20%;
+    padding: 1%;
+  `;
   return (
     <div className="Signup">
       <img src={plant} alt="plant" />
-      <h1>WATER MY PLANTS</h1>
+      <Heading>WATER MY PLANTS</Heading>
       <br></br>
       <h3>Please choose a username, a password and enter a phone number</h3>
       <form onSubmit={submitHandler}>
@@ -101,7 +120,7 @@ const Signup = function () {
           Sign Up
         </button>
         <Link to="/login">
-          <p>Continue to Login</p>
+          <Paragraph>Continue to Login</Paragraph>
         </Link>
       </form>
     </div>
