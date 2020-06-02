@@ -4,6 +4,24 @@ import axios from "axios";
 import plant from "./plant.png";
 import styled from "styled-components";
 
+const Paragraph = styled.p`
+  color: green;
+  border: 5px dotted darkgreen;
+  font-size: 1rem;
+  font-family: Tahoma, Geneva, sans-serif;
+  border-radius: 10px;
+  margin: 2% 30%;
+  padding: 1%;
+`;
+const Heading = styled.h1`
+  color: green;
+  border: 5px dashed red;
+  font-size: 2rem;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  border-radius: 10px;
+  margin: 2% 20%;
+  padding: 1%;
+`;
 const Login = function () {
   const [formState, setFormState] = useState({
     username: "",
@@ -44,24 +62,6 @@ const Login = function () {
       .then((response) => console.log(response.data))
       .catch((err) => console.log(err.errors[0]));
   };
-  const Paragraph = styled.p`
-    color: green;
-    border: 5px dotted darkgreen;
-    font-size: 1rem;
-    font-family: Tahoma, Geneva, sans-serif;
-    border-radius: 10px;
-    margin: 2% 30%;
-    padding: 1%;
-  `;
-  const Heading = styled.h1`
-    color: green;
-    border: 5px dashed red;
-    font-size: 2rem;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    border-radius: 10px;
-    margin: 2% 20%;
-    padding: 1%;
-  `;
   return (
     <div className="Login">
       <img src={plant} alt="plant" />

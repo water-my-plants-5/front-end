@@ -5,6 +5,24 @@ import axios from "axios";
 import plant from "./plant.png";
 import styled from "styled-components";
 
+const Paragraph = styled.p`
+  color: green;
+  border: 5px dotted red;
+  font-size: 1rem;
+  font-family: Tahoma, Geneva, sans-serif;
+  border-radius: 10px;
+  margin: 2% 30%;
+  padding: 1%;
+`;
+const Heading = styled.h1`
+  color: green;
+  border: 5px dashed green;
+  font-size: 2rem;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  border-radius: 10px;
+  margin: 2% 20%;
+  padding: 1%;
+`;
 const Signup = function () {
   const [formState, setFormState] = useState({
     username: "",
@@ -27,10 +45,7 @@ const Signup = function () {
   });
 
   const validate = (event) => {
-    let value =
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value;
+    let value = event.target.value;
     Yup.reach(formSchema, event.target.name).validate(value);
   };
 
@@ -52,24 +67,6 @@ const Signup = function () {
       .catch((err) => console.log(err.errors[0]));
   };
 
-  const Paragraph = styled.p`
-    color: green;
-    border: 5px dotted red;
-    font-size: 1rem;
-    font-family: Tahoma, Geneva, sans-serif;
-    border-radius: 10px;
-    margin: 2% 30%;
-    padding: 1%;
-  `;
-  const Heading = styled.h1`
-    color: green;
-    border: 5px dashed green;
-    font-size: 2rem;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    border-radius: 10px;
-    margin: 2% 20%;
-    padding: 1%;
-  `;
   return (
     <div className="Signup">
       <img src={plant} alt="plant" />
