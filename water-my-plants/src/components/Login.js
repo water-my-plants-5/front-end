@@ -1,17 +1,32 @@
 import React, { useState } from "react";
 import * as Yup from "yup";
 import axios from "axios";
-import plant from "./plant.png"
+import plant from "./plant.png";
+import styled from "styled-components";
 
-
-
-
+const Paragraph = styled.p`
+  color: green;
+  border: 5px dotted darkgreen;
+  font-size: 1rem;
+  font-family: Tahoma, Geneva, sans-serif;
+  border-radius: 10px;
+  margin: 2% 30%;
+  padding: 1%;
+`;
+const Heading = styled.h1`
+  color: green;
+  border: 5px dashed red;
+  font-size: 2rem;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  border-radius: 10px;
+  margin: 2% 20%;
+  padding: 1%;
+`;
 const Login = function () {
   const [formState, setFormState] = useState({
     username: "",
     password: "",
   });
-
 
   const formSchema = Yup.object().shape({
     username: Yup.string()
@@ -45,14 +60,15 @@ const Login = function () {
     axios
       .post("https://reqres.in/api/users", formState)
       .then((response) => console.log(response.data))
-      .catch((err) => console.log(err.errors[0]))
+      .catch((err) => console.log(err.errors[0]));
   };
-
   return (
     <div className="Login">
       <img src={plant} alt="plant" />
-      <h1>WATER MY PLANTS</h1><br></br>
-      <h3>Please Log In</h3><br></br>
+      <Heading>WATER MY PLANTS</Heading>
+      <br></br>
+      <Paragraph>Please Log In</Paragraph>
+      <br></br>
       <form onSubmit={submitHandler}>
         <label htmlFor="username">
           Username:<br></br>
@@ -84,7 +100,6 @@ const Login = function () {
           Log In
         </button>
       </form>
-    
     </div>
   );
 };
